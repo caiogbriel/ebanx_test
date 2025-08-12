@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+.env
+env/
+*.sqlite3
+*.db
+*.log
+*.pot
+*.mo
+*.coverage
+htmlcov/
+.mypy_cache/
+.pytest_cache/
+.tox/
+.idea/
+.DS_Store
+*.swp
+*.bak
+*.tmp
+*.orig
+*.rej
+# VS Code
+.vscode/
