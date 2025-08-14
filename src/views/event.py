@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
-from controllers.event import EventType, manage_event
+from controllers.events import EventType, manage_event
 
 router = APIRouter()
 

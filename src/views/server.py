@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 
-from controllers.reset import reset_accounts
+from controllers.accounts import reset_accounts
 
 router = APIRouter()
 
