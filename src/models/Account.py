@@ -22,6 +22,10 @@ class AccountModel:
         account_objects[id].balance += balance
         return account_objects[id]
 
+    @classmethod
+    def delete_all(cls):
+        account_objects.clear()
+
     def withdraw(self, balance: float):
         self.balance -= balance
         return self
