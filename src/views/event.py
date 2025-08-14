@@ -16,9 +16,6 @@ class EventBody(BaseModel):
 
 @router.post("/event")
 async def event(body: EventBody):
-    event_data = body.model_dump()
-    event_type = event_data.pop("type")
-
-    result = manage_event(event_type, event_data)
+    result = manage_event(body.type, body)
 
     return JSONResponse(status_code=201, content=result)
