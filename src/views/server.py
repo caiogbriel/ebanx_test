@@ -1,5 +1,4 @@
-from fastapi import APIRouter
-from fastapi.responses import JSONResponse
+from fastapi import APIRouter, Response, status
 
 from controllers.accounts import reset_accounts
 
@@ -9,4 +8,5 @@ router = APIRouter()
 @router.post("/reset")
 async def reset():
     reset_accounts()
-    return JSONResponse(status_code=200, content=0)
+
+    return Response(status_code=status.HTTP_200_OK, content="OK")

@@ -1,5 +1,6 @@
-from fastapi import APIRouter
-from fastapi.responses import JSONResponse
+import json
+
+from fastapi import APIRouter, Response, status
 from pydantic import BaseModel
 
 from controllers.events import EventType, manage_event
@@ -18,4 +19,7 @@ class EventBody(BaseModel):
 async def event(body: EventBody):
     result = manage_event(body.type, body)
 
-    return JSONResponse(status_code=201, content=result)
+    if not result:
+        return Response(status_code=status.HTTP_404_NOT_FOUND, content="0")
+
+    return Response(status_code=status.HTTP_201_CREATED, content=json.dumps(result))

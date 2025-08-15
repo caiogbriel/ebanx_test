@@ -46,7 +46,7 @@ def manage_event(
 
         account = AccountModel.get(origin)
         if not account:
-            return 0
+            return None
 
         account.withdraw(amount)
         return {"origin": account.to_dict()}
@@ -61,10 +61,10 @@ def manage_event(
         )
 
         if not origin_account:
-            return 0
+            return None
 
         destination_account = manage_event(
             EventType.DEPOSIT, DepositData(amount=amount, destination=destination)
         )
 
-        return {"origin": origin_account, "destination": destination_account}
+        return {**origin_account, **destination_account}
