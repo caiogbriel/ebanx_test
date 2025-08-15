@@ -7,4 +7,5 @@ def reset_accounts():
 
 def get_account_balance(account_id: str):
     account = AccountModel.get(account_id)
+
     return account.balance if account else None

@@ -1,32 +1,5 @@
-from dataclasses import dataclass
-from enum import Enum
-
+from controllers.interfaces.event import DepositData, EventType, TransferData, WithdrawData
 from models.Account import AccountModel
-
-
-class EventType(Enum):
-    DEPOSIT = "deposit"
-    WITHDRAW = "withdraw"
-    TRANSFER = "transfer"
-
-
-@dataclass
-class DepositData:
-    amount: float
-    destination: str
-
-
-@dataclass
-class WithdrawData:
-    amount: float
-    origin: str
-
-
-@dataclass
-class TransferData:
-    amount: float
-    origin: str
-    destination: str
 
 
 def manage_event(
@@ -37,7 +10,6 @@ def manage_event(
         amount = event_data.amount
 
         account = AccountModel.deposit(destination, amount)
-
         return {"destination": account.to_dict()}
 
     if type == EventType.WITHDRAW:

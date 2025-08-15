@@ -1,5 +1,4 @@
 class AccountModel:
-
     def __init__(self, id: str, balance: float = 0.0):
         self.id = id
         self.balance = balance

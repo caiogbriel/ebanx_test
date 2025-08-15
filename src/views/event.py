@@ -1,18 +1,11 @@
 import json
 
 from fastapi import APIRouter, Response, status
-from pydantic import BaseModel
 
-from controllers.events import EventType, manage_event
+from controllers.event import manage_event
+from views.interfaces.event import EventBody
 
 router = APIRouter()
-
-
-class EventBody(BaseModel):
-    type: EventType
-    amount: float
-    origin: str = None
-    destination: str = None
 
 
 @router.post("/event")
