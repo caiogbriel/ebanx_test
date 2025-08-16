@@ -11,7 +11,9 @@ class AccountModel:
 
     @classmethod
     def get(cls, id: str):
-        return account_objects.get(id)
+        account = account_objects.get(id)
+
+        return account
 
     @classmethod
     def deposit(cls, id: str, balance: float):

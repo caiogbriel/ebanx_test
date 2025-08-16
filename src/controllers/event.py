@@ -1,10 +1,15 @@
-from controllers.interfaces.event import DepositData, EventType, TransferData, WithdrawData
+from controllers.interfaces.event import (
+    DepositData,
+    EventType,
+    TransferData,
+    WithdrawData,
+)
 from models.Account import AccountModel
 
 
 def manage_event(
     type: EventType, event_data: DepositData | WithdrawData | TransferData
-):
+) -> dict | None:
     if type == EventType.DEPOSIT:
         destination = event_data.destination
         amount = event_data.amount
@@ -36,7 +41,8 @@ def manage_event(
             return None
 
         destination_account = manage_event(
-            EventType.DEPOSIT, DepositData(amount=amount, destination=destination)
+            EventType.DEPOSIT,
+            DepositData(amount=amount, destination=destination),
         )
 
         return {**origin_account, **destination_account}

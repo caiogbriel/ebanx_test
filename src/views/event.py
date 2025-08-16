@@ -15,4 +15,6 @@ async def event(body: EventBody):
     if not result:
         return Response(status_code=status.HTTP_404_NOT_FOUND, content="0")
 
-    return Response(status_code=status.HTTP_201_CREATED, content=json.dumps(result))
+    return Response(
+        status_code=status.HTTP_201_CREATED, content=json.dumps(result)
+    )
